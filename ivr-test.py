@@ -27,11 +27,14 @@ def callAnswered():
 @api.route('/callEvent', methods=['POST'])
 def callEvent():
     print("Call Event")
+    print("Event: " + request.json['event'])
+    print("Reason: " + request.json['reason'])
     return {}
 
 @api.route('/sessionCompleted', methods=['POST'])
 def sessionComplete():
     print("SessionComplete")
+    print("Session duration: " + request.json['sessionDuration'])
     return {}
 
 @api.route('/callNotify', methods=['POST'])
