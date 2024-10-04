@@ -11,10 +11,10 @@ api = Flask(__name__)
 
 @api.route('/newCall', methods=['POST'])
 def newCall_ivr():
-    print("NewCall")
     r = Response(response=json.dumps(newCallivr), status=200, mimetype="application/json")
     r.headers["Content-Type"] = "application/json;charset=utf-8"
     #print(request.json)
+    print("NewCall")
     print("SessionID: " + request.json['sessionId'])
     print("CallID: " + request.json['sipCallId'])
     return r
