@@ -28,7 +28,8 @@ def callAnswered():
 def callEvent():
     print("Call Event")
     print("Event: " + request.json['event'])
-    # print("Reason: " + request.json['reason'])
+    if "reason" in request.json.keys():
+        print("Reason: " + request.json['reason'])
     return {}
 
 @api.route('/sessionCompleted', methods=['POST'])
