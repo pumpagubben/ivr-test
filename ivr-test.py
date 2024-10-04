@@ -35,7 +35,7 @@ def callEvent():
 @api.route('/sessionCompleted', methods=['POST'])
 def sessionComplete():
     print("SessionComplete")
-    print("Session duration: " + request.json['sessionDuration'])
+    print("Session duration: " + str(request.json['sessionDuration']))
     return {}
 
 @api.route('/callNotify', methods=['POST'])
