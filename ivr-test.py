@@ -27,10 +27,15 @@ def callAnswered():
 @api.route('/callEvent', methods=['POST'])
 def callEvent():
     print("Call Event")
+    body = {}
+    if request.json['event'] == "callingPartyDrop":
+        body['action'] = "drop"
     print("Event: " + request.json['event'])
     if "reason" in request.json.keys():
         print("Reason: " + request.json['reason'])
-    return {}
+    r = Response(response=json.dumps(body), status=200, mimetype="application/json")
+    r.headers["Content-Type"] = "application/json;charset=utf-8"
+    return r
 
 @api.route('/sessionCompleted', methods=['POST'])
 def sessionComplete():
